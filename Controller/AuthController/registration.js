@@ -1,0 +1,30 @@
+import { signUpValidation } from "../../Middleware/signUpvalidation.js";
+import { User } from "../../Modal/UserSchema/userSchema.js";
+import { hashedPassword } from "../../utils/bcrypt.js";
+import { handleError } from "../../utils/handleError.js";
+
+export const signup=async(req,res)=>{
+    try {
+        const {UserName,email,password}=req.body
+        const existingUser=await User.findOne({email})
+        if(existingUser){
+            return res.status(400).json({success:false,message:"Email already exists..."})
+        }
+        const validatedUser=await signUpValidation.validateAsync({UserName,email,password})
+        const hashPassword=await hashedPassword(password)
+
+        const newUser=new User({
+            email:validatedUser.email,
+            UserName:validatedUser.UserName,
+            password:hashPassword
+            
+        })
+        await newUser.save()
+        res.status(200).json({success:true,message: "User registered successfully!",data: newUser})
+    } catch (error) {
+        if (error.isJoi) {return res.status(401).json({success: false,message: `Validation error: ${error.message}`});
+        }
+        handleError(res, error);    }
+}
+
+
