@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
  const productSchema= new mongoose.Schema(
     {
@@ -6,7 +7,8 @@ import mongoose from "mongoose";
             required:true
         },
         imageSrc:{
-            type:String
+            type:String,
+            default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7yiINd-ddL4DzY2uTmp5IRRpOmu9aSFF-uw&s"
         },
         imageAlt:{
             type:String
@@ -22,7 +24,15 @@ import mongoose from "mongoose";
             type:String,
             required:true
         },
+        subcategory:{
+            type:String,
+            required:true
+        },
         quantity:{
+            type:Number
+            
+        },
+        stoke:{
             type:Number,
             required:true
         },
@@ -30,13 +40,10 @@ import mongoose from "mongoose";
             type:Boolean,
             default:false
         },
-        discription:{
-            type:String,
-            required:true
-        },
+        
         rating:{
-            type:Number,
-            required:true
+            type:Number
+           
         }
     },
     {

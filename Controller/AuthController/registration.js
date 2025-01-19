@@ -5,17 +5,17 @@ import { handleError } from "../../utils/handleError.js";
 
 export const signup=async(req,res)=>{
     try {
-        const {UserName,email,password}=req.body
+        const {name,email,password}=req.body
         const existingUser=await User.findOne({email})
         if(existingUser){
             return res.status(400).json({success:false,message:"Email already exists..."})
         }
-        const validatedUser=await signUpValidation.validateAsync({UserName,email,password})
+        const validatedUser=await signUpValidation.validateAsync({name,email,password})
         const hashPassword=await hashedPassword(password)
 
         const newUser=new User({
             email:validatedUser.email,
-            UserName:validatedUser.UserName,
+            name:validatedUser.name,
             password:hashPassword
             
         })
