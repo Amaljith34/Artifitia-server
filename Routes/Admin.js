@@ -1,12 +1,13 @@
 import express from 'express';
 import { addProduct, deleteProduct, updateProduct } from '../Controller/AdminController/ProductController.js';
+import { trycatch } from '../Middleware/tryCatch.js';
 
 const router=express.Router();
 
 router.route('/admin/product')
-.post(addProduct)
-.patch(updateProduct)
-.delete(deleteProduct)
+.post(trycatch(addProduct))
+.patch(trycatch(updateProduct))
+.delete(trycatch(updateProduct))
 
 
 

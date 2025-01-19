@@ -4,7 +4,7 @@ import { hashedPassword } from "../../utils/bcrypt.js";
 import { handleError } from "../../utils/handleError.js";
 
 export const signup=async(req,res)=>{
-    try {
+   
         const {name,email,password}=req.body
         const existingUser=await User.findOne({email})
         if(existingUser){
@@ -21,10 +21,7 @@ export const signup=async(req,res)=>{
         })
         await newUser.save()
         res.status(200).json({success:true,message: "User registered successfully!",data: newUser})
-    } catch (error) {
-        if (error.isJoi) {return res.status(401).json({success: false,message: `Validation error: ${error.message}`});
-        }
-        handleError(res, error);    }
+    
 }
 
 

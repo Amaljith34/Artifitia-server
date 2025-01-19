@@ -2,13 +2,14 @@ import express from 'express';
 import { allProducts, getproductById, getProductsBycategory } from '../Controller/BaseController/productController.js';
 import { signup } from '../Controller/AuthController/registration.js';
 import { Login } from '../Controller/AuthController/login.js';
+import { trycatch } from '../Middleware/tryCatch.js';
 const router=express.Router();
 
-router.get('/product',allProducts)
-router.get('/product/:id',getproductById)
-router.get('/product/category',getProductsBycategory)
-router.post('/signup',signup)
-router.post('/login',Login)
+router.get('/product',trycatch(allProducts))
+router.get('/product/:id',trycatch(getproductById))
+router.get('/product/category',trycatch(getProductsBycategory))
+router.post('/signup',trycatch(signup))
+router.post('/login',trycatch(Login))
 
 
 

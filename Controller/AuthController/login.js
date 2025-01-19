@@ -3,7 +3,7 @@ import { comparePassword } from "../../utils/bcrypt.js";
 import { handleError } from "../../utils/handleError.js";
 
 export const Login = async (req, res) => {
-    try {
+    
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
@@ -25,7 +25,4 @@ export const Login = async (req, res) => {
 
         res.status(200).json({ success: true, message: "User login successfully", name: user.name, userId: user.id });
 
-    } catch (error) {
-        handleError(res, error);   
-     }
     }
