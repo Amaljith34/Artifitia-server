@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { addProductValidation, updateproductValidation } from "../../Middleware/productValidation.js";
 import Productschema from "../../Modal/ProductSchema/productSchema.js";
 import { handleError } from "../../utils/handleError.js";
-//addproeduct
+
 export const addProduct = async (req, res) => {
   try {
     const { product_name,price,category,subcategory,stoke,imageSrc } = req.body;
@@ -23,7 +23,7 @@ handleError(res, error);    }
   }
 };
 
-//updateproduct 
+
 
 export const updateProduct=async(req,res)=>{
   try {
@@ -46,7 +46,7 @@ handleError(res, error);    }
   }
 }
 
-//hide product
+
 
 export const hideProduct=async(req,res)=>{
   try {
@@ -70,7 +70,6 @@ export const hideProduct=async(req,res)=>{
 }
 
 
-//delete product
 export const deleteProduct = async (req, res) => {
   try {
     const productId = req.params.id;

@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import Productschema from '../../Modal/ProductSchema/productSchema.js';
 import { handleError } from '../../utils/handleError.js';
 
-//display all products by category
 export const getProductsBycategory = async (req, res) => {
     try {
         const { category } = req.body;
@@ -20,7 +19,6 @@ export const getProductsBycategory = async (req, res) => {
 
 
 
-//display product by id
 
 export const getproductById= async(req,res)=>{
     try {
@@ -39,7 +37,6 @@ export const getproductById= async(req,res)=>{
 }
 
 
-//display all product
 
 export const allProducts=async(req,res)=>{
     try {

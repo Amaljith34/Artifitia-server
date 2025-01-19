@@ -1,9 +1,12 @@
 import express from 'express';
-import { addProduct } from '../Controller/AdminController/ProductController.js';
+import { addProduct, deleteProduct, updateProduct } from '../Controller/AdminController/ProductController.js';
 
 const router=express.Router();
 
-router.post('/admin/product',addProduct)
+router.route('/admin/product')
+.post(addProduct)
+.patch(updateProduct)
+.delete(deleteProduct)
 
 
 
