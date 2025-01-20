@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import Productschema from '../../Modal/ProductSchema/productSchema.js';
-import { handleError } from '../../utils/handleError.js';
 
 export const getProductsBycategory = async (req, res) => {
     
@@ -15,9 +14,6 @@ export const getProductsBycategory = async (req, res) => {
         return res.status(200).json({ success: true, data: products, message: "Products fetched successfully" });
     
 };
-
-
-
 
 export const getproductById= async(req,res)=>{
     

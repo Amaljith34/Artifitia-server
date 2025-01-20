@@ -11,10 +11,12 @@ import mongoose from "mongoose";
             default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7yiINd-ddL4DzY2uTmp5IRRpOmu9aSFF-uw&s"
         },
         imageAlt:{
-            type:String
+            type:String,
+            default:'image'
         },
         description:{
-            type:String
+            type:String,
+            default:'description'
         },
         price:{
             type:Number,
@@ -29,12 +31,13 @@ import mongoose from "mongoose";
             required:true
         },
         quantity:{
-            type:Number
+            type:Number,
+            default:1
             
         },
         stoke:{
             type:Number,
-            required:true
+            default:10
         },
         isDeleted:{
             type:Boolean,
@@ -42,7 +45,8 @@ import mongoose from "mongoose";
         },
         
         rating:{
-            type:Number
+            type:Number,
+            default:5
            
         }
     },

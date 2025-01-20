@@ -1,7 +1,6 @@
 import { signUpValidation } from "../../Middleware/signUpvalidation.js";
 import { User } from "../../Modal/UserSchema/userSchema.js";
 import { hashedPassword } from "../../utils/bcrypt.js";
-import { handleError } from "../../utils/handleError.js";
 
 export const signup=async(req,res)=>{
    

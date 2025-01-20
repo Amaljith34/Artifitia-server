@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 import { addProductValidation, updateproductValidation } from "../../Middleware/productValidation.js";
 import Productschema from "../../Modal/ProductSchema/productSchema.js";
-import { handleError } from "../../utils/handleError.js";
 
 export const addProduct = async (req, res) => {
   
     const { product_name,price,category,subcategory,stoke,imageSrc } = req.body;
-    const validatedProduct = await addProductValidation.validateAsync(req.body);
+   
+    
+    // const validatedProduct = await addProductValidation.validateAsync(req.body);
         const existingProduct = await Productschema.findOne({ product_name });
     if (existingProduct) {
       return res.status(400).json({ success: false, message: "Product already exists...." });

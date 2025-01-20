@@ -1,6 +1,5 @@
 import { User } from "../../Modal/UserSchema/userSchema.js";
 import { comparePassword } from "../../utils/bcrypt.js";
-import { handleError } from "../../utils/handleError.js";
 
 export const Login = async (req, res) => {
     
