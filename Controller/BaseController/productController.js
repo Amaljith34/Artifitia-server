@@ -39,3 +39,20 @@ export const allProducts=async(req,res)=>{
         res.status(200).json({success:true,data:getProducts,message:"feth all products"})
     
 }
+
+export const searchProducts = async (req, res) => {
+    const { search } = req.query;
+    
+    try {
+      const products = await Productschema.find({
+        product_name: { $regex: search, $options: 'i' }, 
+      });
+      if (products.length === 0) {
+        return res.status(404).json({ success: false, message: "No products found" });
+      }
+      res.status(200).json({ success: true, data: products });
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Error fetching products", error });
+    }
+  };
+  

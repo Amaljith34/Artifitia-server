@@ -9,7 +9,7 @@ import mongoose from "mongoose";
     {
       productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Products", // Reference name should match the model name
+        ref: "Products", 
         required: true
     }
     ,
