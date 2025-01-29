@@ -18,12 +18,7 @@ git clone https://github.com/Amaljith34/Artifitia-server.git
 npm install
 
 ```
-## Set Up Environment Variables
-Create a .env file in the backend directory and define the following variables:
-```
-MONGO_CONNECTION="mongodb+srv://jith51541:omTBGUtMQFquzLwO@cluster0.4w4tb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-PORT=3000
-```
+
 ## Run the Project
 node server.js
 
